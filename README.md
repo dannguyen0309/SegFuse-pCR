@@ -1,4 +1,4 @@
-# BreastCancerDetection-MRI Code Bundle
+# SegFuse-pCR: Segmentation-Guided Multimodal Transformer Learning for Pathological Complete Response Prediction in Breast Cancer
 
 This `code/` folder contains the paper-facing source code for the breast MRI segmentation and multimodal pCR classification pipeline.
 
