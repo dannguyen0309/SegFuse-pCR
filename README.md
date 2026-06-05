@@ -1,7 +1,5 @@
 # SegFuse-pCR: Segmentation-Guided Multimodal Transformer Learning for Pathological Complete Response Prediction in Breast Cancer
 
-This `code/` folder contains the paper-facing source code for the breast MRI segmentation and multimodal pCR classification pipeline.
-
 ## 1. Download the dataset
 
 Download the two cropped I-SPY dataset archives from Zenodo into `data/`:
@@ -42,13 +40,13 @@ Notes:
 Create the train/val/internal-test split:
 
 ```bash
-./venv/bin/python code/create_ispy_noDuke_split.py
+./venv/bin/python create_ispy_noDuke_split.py
 ```
 
 Build the GT-mask manifest:
 
 ```bash
-./venv/bin/python code/scripts/build_phase2_manifest.py \
+./venv/bin/python scripts/build_phase2_manifest.py \
   --csv outputs/BreastDCEDL_ISPY1_ISPY2_noDuke_80_10_10_split.csv \
   --spy1-root data/BreastDCEDL_ISPY1_min_crop \
   --spy2-root data/BreastDCEDL_ISPY2_min_crop \
@@ -59,7 +57,7 @@ Build the GT-mask manifest:
 Build the predicted-mask manifest:
 
 ```bash
-./venv/bin/python code/scripts/build_phase2_manifest.py \
+./venv/bin/python scripts/build_phase2_manifest.py \
   --csv outputs/BreastDCEDL_ISPY1_ISPY2_noDuke_80_10_10_split.csv \
   --spy1-root data/BreastDCEDL_ISPY1_min_crop \
   --spy2-root data/BreastDCEDL_ISPY2_min_crop \
@@ -98,7 +96,7 @@ These tables use the paper-ready rounded values you provided.
 To reproduce the four validation experiments reported above, run:
 
 ```bash
-bash code/scripts/run_stage_2_multimodal_classification.sh
+bash scripts/run_stage_2_multimodal_classification.sh
 ```
 
 This script includes:
@@ -113,8 +111,8 @@ This script includes:
 To reproduce the internal-test comparison between GT masks and predicted masks, run:
 
 ```bash
-bash code/scripts/run_stage_1_nnunet.sh
-bash code/scripts/run_stage_2_multimodal_classification.sh
+bash scripts/run_stage_1_nnunet.sh
+bash scripts/run_stage_2_multimodal_classification.sh
 ```
 
 `run_stage_1_nnunet.sh` generates the nnU-Net predictions used for the predicted-mask evaluation, and `run_stage_2_multimodal_classification.sh` trains the MedNet34 models and runs the GT-mask and predicted-mask evaluations.
