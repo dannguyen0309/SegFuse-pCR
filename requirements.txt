@@ -1,0 +1,19 @@
+# Core scientific Python stack
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+nibabel
+
+# Deep learning
+torch
+
+# Stage 1 nnU-Net workflow
+nnunetv2
+
+# Notes:
+# - The MedNet34/MedicalNet backbone code is expected locally under third_party/MedicalNet.
+# - Pretrained MedicalNet weights are expected under third_party/pretrained/.
+# - Depending on your environment, you may also want to install a CUDA-matched PyTorch build
+#   from the official PyTorch installation instructions instead of relying on plain `pip install torch`.

@@ -1,0 +1,29 @@
+manifest: outputs/phase2_manifest_pred_mask.csv
+output_dir: outputs/phase2_pred_mask_attention
+clinical_num_cols:
+  - age
+  - menopause_missing
+clinical_cat_cols:
+  - HR
+  - HER2
+  - menopause
+roi_size: [96, 160, 160]
+roi_margin: 8
+min_component_size: 16
+mask_mode: pred
+roi_crop_enable: true
+keep_largest_component: true
+fusion_type: attention
+batch_size: 2
+d_model: 256
+n_heads: 4
+num_layers: 1
+dropout: 0.2
+encoder_type: medicalnet_resnet
+amp: true
+seed: 42
+loss_bce_weight: 1.0
+loss_focal_weight: 0.0
+focal_gamma: 2.0
+focal_alpha: 0.25
+

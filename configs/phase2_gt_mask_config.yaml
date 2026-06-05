@@ -1,0 +1,52 @@
+manifest: outputs/phase2_manifest_gt_mask.csv
+output_dir: outputs/phase2_mednet34_gt_roi_clinical_attention_margin16_bs4_bce_light
+clinical_num_cols:
+  - age
+  - menopause_missing
+clinical_cat_cols:
+  - HR
+  - HER2
+  - menopause
+roi_size: [96, 160, 160]
+roi_margin: 16
+min_component_size: 16
+mask_mode: gt
+roi_crop_enable: true
+keep_largest_component: true
+image_only: false
+clinical_only: false
+fusion_type: attention
+batch_size: 4
+epochs: 80
+lr: 0.00001
+weight_decay: 0.0005
+d_model: 256
+n_heads: 4
+num_layers: 1
+dropout: 0.3
+dim_feedforward: 512
+encoder_type: official_medicalnet_resnet34
+encoder_base_channels: 32
+encoder_out_channels: 128
+shared_encoder: true
+use_mask_channel: false
+medicalnet_pretrained_path: third_party/pretrained/resnet_34_23dataset.pth
+enable_augmentation: true
+augmentation_strength: light
+freeze_image_encoder: false
+debug_forward_only: false
+normalize_mode: zscore
+target_col: pCR
+num_workers: 0
+amp: true
+seed: 42
+scheduler: plateau
+grad_clip: 1.0
+early_stop_patience: 15
+monitor_metric: auroc
+threshold_objective: balanced_accuracy
+loss_bce_weight: 1.0
+loss_focal_weight: 0.0
+focal_gamma: 2.0
+focal_alpha: 0.25
+use_weighted_sampler: false
