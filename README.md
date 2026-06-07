@@ -9,6 +9,7 @@ mkdir -p data
 cd data
 wget "https://zenodo.org/records/18114231/files/BreastDCEDL_ISPY1_min_crop.tar.gz?download=1" -O BreastDCEDL_ISPY1_min_crop.tar.gz
 wget "https://zenodo.org/records/18114231/files/BreastDCEDL_ISPY2_min_crop.tar.gz?download=1" -O BreastDCEDL_ISPY2_min_crop.tar.gz
+wget "https://zenodo.org/records/18114231/files/BreastDCEDL_metadata_min_crop.csv?download=1" -O BreastDCEDL_metadata_min_crop.csv
 ```
 
 Extract them:
